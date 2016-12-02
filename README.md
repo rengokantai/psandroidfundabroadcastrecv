@@ -19,3 +19,25 @@ public class MyFirstReceiver extends BroadcastReceiver{
   }
 }
 ```
+
+AndroidManifest.xml
+```
+<application>
+  <activity android:name=".MainActivity">
+    <intent-filter>
+      <action android:name="android.intent.action.MAIN"/>
+      <category android:name="android.intent.category.LAUNCHER"/>
+    </intent-filter>
+  </activity>
+  <receiver android:name=".MyFirstReceiver"/>
+</application>
+```
+
+
+MainActivity.java
+```
+public void sendBroadcastMessage(View view){
+  Intent intent = new Intent(this,MyFirstReceiver.class);
+  sendBroadcast(intent);
+}
+```
