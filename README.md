@@ -231,12 +231,26 @@ MainActivity.java
 public static class MyThirdReceiverInner extends BroadcastReceiver{
     @Override
   public void onReceive(Context context,Intent intent){
+  //getters
+  if(isOrderedBroadcast()){
     int initCode = getResultCode();
     String initData = getResultData();
     Bundle initBundle = getResultExtras(true);
     String s = initBundle.getString("name");
     Log.i(TAG,"Hello 3rd");
     Toast.makeText(context,"3rd test",Toast.LENGTH_LONG).show();
-  }
+    //setters
+    setResultCode(1);
+    setResultData("ios");
+    initBundle.putString("name","new");
+    setResultExtras(initBundle);
+    
+     //same as    setResult(1,"ios",initBundle);
+    }
+  }
 }
+```
+####08:50 set result receiver
+```
+sendOrderedBroadcast(intent,null,new FourthReceiver(),null,-1."string",b);
 ```
