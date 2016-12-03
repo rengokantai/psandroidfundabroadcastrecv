@@ -164,3 +164,38 @@ Example
   </intent-filter>
 </receiver>
 ```
+
+
+
+
+##4. Exploring Ordered BroadcastReceiver
+###1 Overview and Project Setup
+###2 Using Priority Attribute to Determine the Order
+```
+<receiver android:name=".MyFirstReceiver">
+  <intent-filter>
+    <action android:name="my.custom.action.name"/>
+  </intent-filter>
+</receiver>
+<receiver android:name=".MySecondReceiver">
+  <intent-filter android:prority="20">  // second top priority
+    <action android:name="my.custom.action.name"/>
+  </intent-filter>
+</receiver>
+
+<receiver android:name=".MainActivity$MyThirdReceiverInner">
+  <intent-filter android:prority="30">   // top priority
+    <action android:name="my.custom.action.name"/>
+  </intent-filter>
+</receiver>
+```
+MainActivity.java
+```
+public void sendBroadcastMessage(View view){
+  //Intent intent = new Intent(this,MyFirstReceiver.class);
+  Intent intent = new Intent("my.custom.action.name");
+  //sendBroadcast(intent);
+  //change to
+  sendOrderedBroadcast(intent);
+}
+```
