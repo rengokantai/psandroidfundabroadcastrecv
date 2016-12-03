@@ -199,3 +199,44 @@ public void sendBroadcastMessage(View view){
   sendOrderedBroadcast(intent);
 }
 ```
+###3 Exploring Ordered BroadcastReceiver
+```
+getResultCode/setResultCode
+getResultData/setResultData
+getResultExtras/setResultExtras
+```
+same as 
+```
+setResult(code,data,extras)
+```
+####03:50
+```
+abortBroadcast()
+```
+
+####4 Demo: Exploring Ordered BroadcastReceiver
+MainActivity.java
+```
+public void sendBroadcastMessage(View view){
+  Intent intent = new Intent("my.custom.action.name");
+  Bundle b = new Bundle();
+  b.putString("name","ke");
+  sendOrderedBroadcast(intent,null,null,null,-1,"string",b);
+}
+```
+
+
+MainActivity.java
+```
+public static class MyThirdReceiverInner extends BroadcastReceiver{
+    @Override
+  public void onReceive(Context context,Intent intent){
+    int initCode = getResultCode();
+    String initData = getResultData();
+    Bundle initBundle = getResultExtras(true);
+    String s = initBundle.getString("name");
+    Log.i(TAG,"Hello 3rd");
+    Toast.makeText(context,"3rd test",Toast.LENGTH_LONG).show();
+  }
+}
+```
