@@ -56,9 +56,27 @@ public static class MyThirdReceiverInner extends BroadcastReceiver{
 }
 ```
 ###4 Using Intent Filter and Custom Action name
+original
+```
+<receiver android:name=".MyFirstReceiver" />
+```
+to
 ```
 <receiver android:name=".MyFirstReceiver">
+    //add this part
+  <intent-filter>
+    <action android:name="my.custom.action.name"/>
+  </intent-filter>
 </receiver>
+```
+in  
+MainActivity.java
+```
+public void sendBroadcastMessage(View view){
+  //Intent intent = new Intent(this,MyFirstReceiver.class);
+  Intent intent = new Intent("my.custom.action.name");
+  sendBroadcast(intent);
+}
 ```
 
 
@@ -76,3 +94,30 @@ public static class MyThirdReceiverInner extends BroadcastReceiver{
   </intent-filter>
 </receiver>
 ```
+####6 Properties Related to BroadcastReceivers
+####00:10
+Broadcasts are sent asynchronously
+```
+public void sendBroadcastMessage(View view){
+  //Intent intent = new Intent(this,MyFirstReceiver.class);
+  Intent intent = new Intent("my.custom.action.name");
+  sendBroadcast(intent);
+  //add this
+  Toast.makeText(context,"This shows first before all receivers",Toast.LENGTH_LONG).show();
+}
+```
+
+####01:43
+BroadcastReceivers work in main thread (we vannot block the main thread for longer duration of time)
+Android system will generate ANR and the app will crash
+
+MyFirstReceiver.java
+```
+//add
+try{
+  Thread.sleep(10000);
+}catch{
+}
+```
+####05:05
+Never perform long-running task insideon the onReceive method of the broadcastreceiver
