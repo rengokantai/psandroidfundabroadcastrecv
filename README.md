@@ -8,7 +8,7 @@
 MyFirstReceiver extends BroadcastReceiver  
 override the onReceieve method  
 
-create file MyFirstReceiver
+create file MyFirstReceiver.java
 ```
 public class MyFirstReceiver extends BroadcastReceiver{
   private static final String TAG = MyFirstReceiver.class.getSimpleName();
@@ -121,3 +121,35 @@ try{
 ```
 ####05:05
 Never perform long-running task insideon the onReceive method of the broadcastreceiver
+
+
+###7 Passing Data from Activity to Receiver
+```
+public void sendBroadcastMessage(View view){
+  //Intent intent = new Intent(this,MyFirstReceiver.class);
+  Intent intent = new Intent("my.custom.action.name");
+  intent.putExtra("name","ke");
+  //Or
+  //Bundle bundle = new Bundle();
+  //bundle.putString("name","ke");
+  //intent.putExtras(bundle);
+  sendBroadcast(intent);
+  
+ 
+}
+```
+
+MyFirstReceiver.java
+```
+public class MyFirstReceiver extends BroadcastReceiver{
+  private static final String TAG = MyFirstReceiver.class.getSimpleName();
+  @Override
+  public void onReceive(Context context,Intent intent){
+    //add this
+    String name = intent.getStringExtra("name");
+    Log.i(name);
+    Log.i(TAG,"Hello");
+    Toast.makeText(context,"test",Toast.LENGTH_LONG).show();
+  }
+}
+```
