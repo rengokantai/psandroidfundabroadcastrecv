@@ -153,3 +153,14 @@ public class MyFirstReceiver extends BroadcastReceiver{
   }
 }
 ```
+###8 Some Commom Usage of BroadcastReceiver
+Example
+```
+<receiver android:name=".MyFirstReceiver">
+  <intent-filter>
+    //change this line
+    <action android:name="android.intent.action.AIRPLANE_MODE"/> //if we toggle this in notification panel, the toast will show
+    // android.net.wifi.WIFI_CHANGED
+  </intent-filter>
+</receiver>
+```
