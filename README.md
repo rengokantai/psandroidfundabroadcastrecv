@@ -269,5 +269,38 @@ unregister the receiver
 - unregisterReceiver()
 - Generally in onPause()
 If you forget to unregister the receiver throws leaked content receiver error
-###2 
+###2 Why Do We Need Dynamic BroadcastReceivers?
+MainActivity.java
+```
+private MyFirstReceiver myFirstReceiver;
+@Override
+protected void onCreate(Bundle sevedInstanceState){
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
+  myFirstReceiver= new MyFirstReceiver();
+  
+}
 
+@Override
+protected void onResume(){
+  super.onResume();
+  IntentFilter intentFilter = new IntentFilter();
+  intentFilter.addAction("android.intent.action.AIRPLANE_MODE");
+  intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+  registerReceiver(myFirstReceiver,intentFilter);
+}
+```
+####05:14
+```
+@Override
+protected void onPause(){
+  super.onPause();
+  unregisterReceiver(myFirstReceiver);
+}
+```
+
+
+###3 Few Actions Can Only Be Registered Dynamically
+```
+
+```
