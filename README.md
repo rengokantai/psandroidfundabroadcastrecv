@@ -254,3 +254,20 @@ public static class MyThirdReceiverInner extends BroadcastReceiver{
 ```
 sendOrderedBroadcast(intent,null,new FourthReceiver(),null,-1."string",b);
 ```
+
+##5. Creating BroadcastReceiver Dynamically
+###1 Overview and Project Setup
+static->register in manifest file 
+dynamic->register in java code
+
+
+####02:55
+register the receiver
+- registerReceiver();
+- Generally in onResume()
+unregister the receiver
+- unregisterReceiver()
+- Generally in onPause()
+If you forget to unregister the receiver throws leaked content receiver error
+###2 
+
