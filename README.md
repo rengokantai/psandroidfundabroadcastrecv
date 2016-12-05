@@ -302,5 +302,19 @@ protected void onPause(){
 
 ###3 Few Actions Can Only Be Registered Dynamically
 ```
+public void registerReceiver(View view){
+  IntentFilter intentFilter = new IntentFilter();
+  intentFilter.addAction(Intent.ACTION_TIME_TICK);
+  registerReceiver(timeTickReceiver,intentFilter);
+}
+public void unregisterReceiver(View view){
+  unregisterReceiver(timeTickReceiver);
+}
 
+private BroadcastReceiver timeTickReceiver = new BroadcastReceiver(){
+  @Override
+  public void onReceive(Context context,Intent intent){
+    Toast.makeText(context,"Hello",Toast.LENGTH_SHORT).show();
+  }
+}
 ```
