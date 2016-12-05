@@ -318,3 +318,24 @@ private BroadcastReceiver timeTickReceiver = new BroadcastReceiver(){
   }
 }
 ```
+
+
+##6. Understanding Sticky Broadcast
+###1 Understanding Sticky Broadcast
+```
+ACTION_BATTERY_CHANGED
+- BATTERY_STATUS_CHARGING
+- BATTERY_STATUS_FULL
+- BATTERY_PLUGGED_USB
+```
+```
+ACTION_DEVICE_STORAGE_LOW
+```
+```
+ACTION_DOCK_EVENT
+```
+###2 Retrieving Sticky Intent Data Using registerReceiver() Method
+```
+public void 
+```
+
