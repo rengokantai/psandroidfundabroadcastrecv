@@ -1,6 +1,6 @@
 # psandroidfundabroadcastrecv
-##3 Creating BroadcastReceiver Statically
-###1 Overview and Project setup
+## 3. Creating BroadcastReceiver Statically
+### 1 Overview and Project setup
 03:38 create empty activity
 
 
@@ -341,4 +341,21 @@ public void
 
 
 
+## 9. Using BroadcastReceivers with Android Permissions
+### 1 Oerview and Project Setup
+normal
+- ACCESS_WIFI_STATE
+- BLUETOOTH
+- VIBRATE
+- SET_ALARM
 
+dangeraous
+- READ_CONTACTS
+- ACCESS_FINE_LOCATION
+- CAMERA
+- SEND_SMS
+
+### 2 Using BroadcastReceiver with Android Permissions
+stop at 4:17
+
+### 3 Detailed Code Snippet
