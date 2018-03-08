@@ -82,7 +82,7 @@ public void sendBroadcastMessage(View view){
 ```
 
 
-###5 Multiple Receivers with Same Action Name
+### 5 Multiple Receivers with Same Action Name
 ```
 <receiver android:name=".MyFirstReceiver">
   <intent-filter>
@@ -96,8 +96,8 @@ public void sendBroadcastMessage(View view){
   </intent-filter>
 </receiver>
 ```
-####6 Properties Related to BroadcastReceivers
-####00:10
+### 6 Properties Related to BroadcastReceivers
+###### 00:10
 Broadcasts are sent asynchronously
 ```
 public void sendBroadcastMessage(View view){
@@ -109,7 +109,7 @@ public void sendBroadcastMessage(View view){
 }
 ```
 
-####01:43
+###### 01:43
 BroadcastReceivers work in main thread (we vannot block the main thread for longer duration of time)
 Android system will generate ANR and the app will crash
 
@@ -121,11 +121,11 @@ try{
 }catch{
 }
 ```
-####05:05
+###### 05:05
 Never perform long-running task insideon the onReceive method of the broadcastreceiver
 
 
-###7 Passing Data from Activity to Receiver
+### 7 Passing Data from Activity to Receiver
 ```
 public void sendBroadcastMessage(View view){
   //Intent intent = new Intent(this,MyFirstReceiver.class);
@@ -155,7 +155,7 @@ public class MyFirstReceiver extends BroadcastReceiver{
   }
 }
 ```
-###8 Some Commom Usage of BroadcastReceiver
+### 8 Some Commom Usage of BroadcastReceiver
 Example
 ```
 <receiver android:name=".MyFirstReceiver">
@@ -170,9 +170,9 @@ Example
 
 
 
-##4. Exploring Ordered BroadcastReceiver
-###1 Overview and Project Setup
-###2 Using Priority Attribute to Determine the Order
+## 4. Exploring Ordered BroadcastReceiver
+### 1 Overview and Project Setup
+### 2 Using Priority Attribute to Determine the Order
 ```
 <receiver android:name=".MyFirstReceiver">
   <intent-filter>
@@ -201,7 +201,7 @@ public void sendBroadcastMessage(View view){
   sendOrderedBroadcast(intent);
 }
 ```
-###3 Exploring Ordered BroadcastReceiver
+### 3 Exploring Ordered BroadcastReceiver
 ```
 getResultCode/setResultCode
 getResultData/setResultData
@@ -211,12 +211,12 @@ same as
 ```
 setResult(code,data,extras)
 ```
-####03:50
+###### 03:50
 ```
 abortBroadcast()
 ```
 
-####4 Demo: Exploring Ordered BroadcastReceiver
+### 4 Demo: Exploring Ordered BroadcastReceiver
 MainActivity.java
 ```
 public void sendBroadcastMessage(View view){
@@ -252,7 +252,7 @@ public static class MyThirdReceiverInner extends BroadcastReceiver{
   }
 }
 ```
-####08:50 set result receiver
+###### 08:50 set result receiver
 ```
 sendOrderedBroadcast(intent,null,new FourthReceiver(),null,-1."string",b);
 ```
@@ -263,7 +263,7 @@ static->register in manifest file
 dynamic->register in java code
 
 
-####02:55
+###### 02:55
 register the receiver
 - registerReceiver();
 - Generally in onResume()
@@ -292,7 +292,7 @@ protected void onResume(){
   registerReceiver(myFirstReceiver,intentFilter);
 }
 ```
-####05:14
+###### 05:14
 ```
 @Override
 protected void onPause(){
@@ -302,7 +302,7 @@ protected void onPause(){
 ```
 
 
-###3 Few Actions Can Only Be Registered Dynamically
+### 3 Few Actions Can Only Be Registered Dynamically
 ```
 public void registerReceiver(View view){
   IntentFilter intentFilter = new IntentFilter();
@@ -322,8 +322,8 @@ private BroadcastReceiver timeTickReceiver = new BroadcastReceiver(){
 ```
 
 
-##6. Understanding Sticky Broadcast
-###1 Understanding Sticky Broadcast
+## 6. Understanding Sticky Broadcast
+### 1 Understanding Sticky Broadcast
 ```
 ACTION_BATTERY_CHANGED
 - BATTERY_STATUS_CHARGING
@@ -336,7 +336,7 @@ ACTION_DEVICE_STORAGE_LOW
 ```
 ACTION_DOCK_EVENT
 ```
-###2 Retrieving Sticky Intent Data Using registerReceiver() Method
+### 2 Retrieving Sticky Intent Data Using registerReceiver() Method
 ```
 public void 
 ```
