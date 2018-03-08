@@ -1,10 +1,12 @@
 # psandroidfundabroadcastrecv
+## 2. Getting Familiar with BroadcastReceiver
+### 3
 ## 3. Creating BroadcastReceiver Statically
 ### 1 Overview and Project setup
 03:38 create empty activity
 
 
-###2 Create out first boradcastreceiver
+### 2 Create out first boradcastreceiver
 MyFirstReceiver extends BroadcastReceiver  
 override the onReceieve method  
 
@@ -41,7 +43,7 @@ public void sendBroadcastMessage(View view){
   sendBroadcast(intent);
 }
 ```
-###3 BroadcastReceiver as Inner static
+### 3 BroadcastReceiver as Inner static Class
 ```
 <receiver android:name=".MainActivity$MyThirdReceiverInner"/>
 ```
@@ -55,7 +57,7 @@ public static class MyThirdReceiverInner extends BroadcastReceiver{
   }
 }
 ```
-###4 Using Intent Filter and Custom Action name
+### 4 Using Intent Filter and Custom Action name
 original
 ```
 <receiver android:name=".MyFirstReceiver" />
