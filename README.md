@@ -257,8 +257,8 @@ public static class MyThirdReceiverInner extends BroadcastReceiver{
 sendOrderedBroadcast(intent,null,new FourthReceiver(),null,-1."string",b);
 ```
 
-##5. Creating BroadcastReceiver Dynamically
-###1 Overview and Project Setup
+## 5. Creating BroadcastReceiver Dynamically
+### 1 Overview and Project Setup
 static->register in manifest file 
 dynamic->register in java code
 
@@ -271,7 +271,7 @@ unregister the receiver
 - unregisterReceiver()
 - Generally in onPause()
 If you forget to unregister the receiver throws leaked content receiver error
-###2 Why Do We Need Dynamic BroadcastReceivers?
+### 2 Why Do We Need Dynamic BroadcastReceivers?
 MainActivity.java
 ```
 private MyFirstReceiver myFirstReceiver;
@@ -340,6 +340,42 @@ ACTION_DOCK_EVENT
 ```
 public void 
 ```
+
+
+
+
+
+
+
+## 7. Enhancing App Security with BroadcastReceiver
+### 1 Overview and Initial Project Setup
+Enhance app security
+```
+<permission>
+<uses-permission>
+```
+Narrow the scope of app
+```
+android:exported
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
